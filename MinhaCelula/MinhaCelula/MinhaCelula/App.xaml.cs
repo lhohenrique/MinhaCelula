@@ -4,11 +4,12 @@ using MinhaCelula.ViewModels;
 using MinhaCelula.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prism.DryIoc;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MinhaCelula
 {
-    public partial class App
+    public partial class App : PrismApplication
     {
         /* 
          * The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
@@ -23,13 +24,16 @@ namespace MinhaCelula
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<LoginPage>();
+            containerRegistry.RegisterForNavigation<CellsPage>();
+            containerRegistry.RegisterForNavigation<ReportsPage>();
+            containerRegistry.RegisterForNavigation<ChurchsPage>();
         }
     }
 }
