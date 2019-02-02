@@ -1,9 +1,11 @@
 ﻿using MinhaCelula.Models;
+using MinhaCelula.Services;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace MinhaCelula.ViewModels
 {
@@ -31,11 +33,11 @@ namespace MinhaCelula.ViewModels
             set { SetProperty(ref cellStartTime, value); }
         }
 
-        private ObservableCollection<Person> birthdaysOfMonthList;
-        public ObservableCollection<Person> BirthdaysOfMonthList
+        private ObservableCollection<Evento> _eventosList;
+        public ObservableCollection<Evento> EventosList
         {
-            get { return birthdaysOfMonthList; }
-            set { SetProperty(ref birthdaysOfMonthList, value); }
+            get { return _eventosList; }
+            set { SetProperty(ref _eventosList, value); }
         }
         #endregion
 
@@ -47,6 +49,20 @@ namespace MinhaCelula.ViewModels
             CellName = "MinhaCelula 1";
             NextMeeting = "15/05/2019";
             CellStartTime = "19 horas";
+
+            EventosList = EventoService.GetEventos();
         }
+
+        #region Actions
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Private Methods
+        #endregion
+
+        #region Public Methods
+        #endregion
     }
 }

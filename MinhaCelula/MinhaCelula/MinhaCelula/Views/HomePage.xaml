@@ -8,84 +8,90 @@
              Padding="5"
              Title="Minha Célula">
 
-    <StackLayout VerticalOptions="FillAndExpand"
+    <StackLayout Orientation="Vertical">
+        <StackLayout VerticalOptions="FillAndExpand"
                  BackgroundColor="White"
                  Orientation="Vertical"
                  Spacing="0"
                  Padding="7"
                  Margin="0,0,0,5">
 
-        
-        <Label Text="{Binding CellName}"
+            <Label Text="{Binding CellName}"
                FontSize="14"
                VerticalOptions="Center"
                TextColor="Black"
                Margin="0,0,0,5"/>
 
-        <Label Text="Próxima reunião"
+            <Label Text="Próxima reunião"
                FontSize="10"
                FontAttributes="Bold"
                VerticalOptions="Center"
                TextColor="DarkSlateGray"/>
-        <Label Text="{Binding NextMeeting}"
+            <Label Text="{Binding NextMeeting}"
                FontSize="10"
                VerticalOptions="Center"
                TextColor="DarkSlateGray"/>
 
-        <Label Text="Horário"
+            <Label Text="Horário"
                FontSize="10"
                FontAttributes="Bold"
                VerticalOptions="Center"
                TextColor="DarkSlateGray"
                Margin="0,5,0,0"/>
-        <Label Text="{Binding CellStartTime}"
+            <Label Text="{Binding CellStartTime}"
                FontSize="10"
                VerticalOptions="Center"
                TextColor="DarkSlateGray"/>
+        </StackLayout>
 
-        <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,15,0,10"></BoxView>
-        <Label Text="Avisos"
+        <StackLayout VerticalOptions="FillAndExpand"
+                 BackgroundColor="White"
+                 Orientation="Vertical"
+                 Spacing="0"
+                 Padding="7"
+                 Margin="0,0,0,5">
+            
+            <Label Text="Próximos Eventos"
                FontSize="14"
                VerticalOptions="Center"
                TextColor="Black"/>
-        <Label Text="Batismo dia 20/06/2019"
-               FontSize="10"
-               FontAttributes="Bold"
-               VerticalOptions="Center"
-               TextColor="DarkSlateGray"
-               Margin="0,5,0,0"/>
-        <Label Text="Reunião de líderes dia 20/06/2019"
-               FontSize="10"
-               FontAttributes="Bold"
-               VerticalOptions="Center"
-               TextColor="DarkSlateGray"
-               Margin="0,5,0,0"/>
+            <ListView x:Name="EventosListView"
+                  RowHeight="75"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding EventosList, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand"
+                                     BackgroundColor="White"
+                                     Orientation="Vertical"
+                                     Spacing="0"
+                                     Padding="7"
+                                     Margin="0">
 
-        <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,15,0,10"></BoxView>
-        <Label Text="Aniversariantes do Mês"
-               FontSize="14"
-               VerticalOptions="Center"
-               TextColor="Black"/>
-        <Label Text="Membro 1"
-               FontSize="10"
-               VerticalOptions="Center"
-               TextColor="LightGray"
-               FontAttributes="Bold"
-               Margin="0,5,0,0"/>
-        <Label Text="12/05/2019"
-               FontSize="10"
-               VerticalOptions="Center"
-               TextColor="LightGray"/>
-        
-        <Label Text="Membro 2"
-               FontSize="10"
-               VerticalOptions="Center"
-               TextColor="GreenYellow"
-               FontAttributes="Bold"
-               Margin="0,5,0,0"/>
-        <Label Text="25/05/2019"
-               FontSize="10"
-               VerticalOptions="Center"
-               TextColor="GreenYellow"/>
+                                <Label Text="{Binding Title, Mode=OneWay}"
+                                        FontSize="12"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"
+                                       FontAttributes="Bold"
+                                        Margin="0,0,0,5"/>
+                                <Label Text="{Binding Date, Mode=OneWay}"
+                                        FontSize="10"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"/>
+                                <Label Text="{Binding StartTime, Mode=OneWay}"
+                                        FontSize="10"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"/>
+                                <Label Text="{Binding Location, Mode=OneWay}"
+                                        FontSize="10"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
