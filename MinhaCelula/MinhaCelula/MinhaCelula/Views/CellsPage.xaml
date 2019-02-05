@@ -7,7 +7,7 @@
 
     <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
         <ListView x:Name="CellsList"
-              ItemsSource="{Binding CellsList}">
+              ItemsSource="{Binding CelulasList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

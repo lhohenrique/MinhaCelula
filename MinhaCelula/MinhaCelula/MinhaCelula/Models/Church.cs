@@ -71,23 +71,21 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _Leaders, value); }
         }
 
-        private int _LeadersNumber;
         public int LeadersNumber
         {
             get { return Leaders != null ? Leaders.Count : 0; }
         }
 
-        private List<Cell> _Cells;
-        public List<Cell> Cells
+        private List<Celula> _celulas;
+        public List<Celula> Celulas
         {
-            get { return _Cells; }
-            set { SetProperty(ref _Cells, value); }
+            get { return _celulas; }
+            set { SetProperty(ref _celulas, value); }
         }
 
-        private int _CellsNumber;
-        public int CellsNumber
+        public int CelulasNumber
         {
-            get { return Cells != null ? Cells.Count : 0; }
+            get { return Celulas != null ? Celulas.Count : 0; }
         }
         #endregion
     }

@@ -12,25 +12,11 @@ namespace MinhaCelula.ViewModels
     public class HomePageViewModel : ViewModelBase
     {
         #region Properties
-        private string cellName;
-        public string CellName
+        private Celula _celula;
+        public Celula Celula
         {
-            get { return cellName; }
-            set { SetProperty(ref cellName, value); }
-        }
-
-        private string nextMeeting;
-        public string NextMeeting
-        {
-            get { return nextMeeting; }
-            set { SetProperty(ref nextMeeting, value); }
-        }
-
-        private string cellStartTime;
-        public string CellStartTime
-        {
-            get { return cellStartTime; }
-            set { SetProperty(ref cellStartTime, value); }
+            get { return _celula; }
+            set { SetProperty(ref _celula, value); }
         }
 
         private ObservableCollection<Evento> _eventosList;
@@ -46,9 +32,7 @@ namespace MinhaCelula.ViewModels
 
         public HomePageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            CellName = "MinhaCelula 1";
-            NextMeeting = "15/05/2019";
-            CellStartTime = "19 horas";
+            Celula = CelulaService.GetCelulaFromLoggedUser();
 
             EventosList = EventoService.GetEventos();
         }

@@ -15,7 +15,7 @@
         <DatePicker Date="{Binding Date, Mode=OneWay}"></DatePicker>
 
         <Label Text="Horário de início:"></Label>
-        <TimePicker Time="{Binding CellStartTime, Mode=OneWay}"></TimePicker>
+        <TimePicker Time="{Binding CelulaStartTime, Mode=OneWay}"></TimePicker>
 
         <Label Text="Oferta:"></Label>
         <Entry Text="{Binding Offer, Mode=TwoWay}"></Entry>

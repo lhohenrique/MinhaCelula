@@ -61,15 +61,15 @@ namespace MinhaCelula.ViewModels
         #endregion
 
         #region Commands
-        public DelegateCommand AddCellCommand { get; }
+        public DelegateCommand AddCelulaCommand { get; }
         #endregion
 
         public AddCellViewModel()
         {
-            AddCellCommand = new DelegateCommand(AddCellAction);
+            AddCelulaCommand = new DelegateCommand(AddCelulaAction);
         }
 
-        private void AddCellAction()
+        private void AddCelulaAction()
         {
             
         }

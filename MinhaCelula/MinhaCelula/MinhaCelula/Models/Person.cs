@@ -80,11 +80,11 @@ namespace MinhaCelula.Models
             get { return _Profile == PersonProfile.Visitant; }
         }
 
-        private int _cellId;
-        public int CellId
+        private int _celulaId;
+        public int CelulaId
         {
-            get { return _cellId; }
-            set { SetProperty(ref _cellId, value); }
+            get { return _celulaId; }
+            set { SetProperty(ref _celulaId, value); }
         }
         #endregion
     }

@@ -10,11 +10,11 @@ namespace MinhaCelula.ViewModels
 {
 	public class CellsPageViewModel : BindableBase
 	{
-        private ObservableCollection<Cell> _cellsList;
-        public ObservableCollection<Cell> _CellsList
+        private ObservableCollection<Celula> _celulasList;
+        public ObservableCollection<Celula> _CelulasList
         {
-            get { return _cellsList; }
-            set { SetProperty(ref _cellsList, value); }
+            get { return _celulasList; }
+            set { SetProperty(ref _celulasList, value); }
         }
 
         public CellsPageViewModel()

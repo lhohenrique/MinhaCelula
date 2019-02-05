@@ -29,11 +29,21 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _Date, value); }
         }
 
+        public string DateFormated
+        {
+            get { return Date.ToString(("MM/dd/yyyy")); }
+        }
+
         private TimeSpan _startTime;
         public TimeSpan StartTime
         {
             get { return _startTime; }
             set { SetProperty(ref _startTime, value); }
+        }
+
+        public string StartTimeFormated
+        {
+            get { return StartTime.ToString(@"hh\:mm") + " horas"; }
         }
 
         private string _location;

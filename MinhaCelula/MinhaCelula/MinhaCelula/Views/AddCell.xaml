@@ -7,7 +7,7 @@
 
     <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Nova Célula"></Label>
-        <Button x:Name="AddCellButton" Text="Salvar" Command="AddCellCommand"></Button>
+        <Button x:Name="AddCellButton" Text="Salvar" Command="AddCelulaCommand"></Button>
     </StackLayout>
 
     <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">

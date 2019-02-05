@@ -16,32 +16,35 @@
                  Padding="7"
                  Margin="0,0,0,5">
 
-            <Label Text="{Binding CellName}"
+            <Label Text="{Binding Celula.Name}"
                FontSize="14"
                VerticalOptions="Center"
                TextColor="Black"
                Margin="0,0,0,5"/>
 
             <Label Text="Próxima reunião"
-               FontSize="10"
-               FontAttributes="Bold"
-               VerticalOptions="Center"
-               TextColor="DarkSlateGray"/>
-            <Label Text="{Binding NextMeeting}"
-               FontSize="10"
-               VerticalOptions="Center"
-               TextColor="DarkSlateGray"/>
+                FontSize="12"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                TextColor="DarkSlateGray"
+                Margin="7,0,0,0"/>
+            <Label Text="{Binding Celula.NextMeetingDate}"
+                FontSize="10"
+                VerticalOptions="Center"
+                TextColor="DarkSlateGray"
+                Margin="7,0,0,0"/>
 
             <Label Text="Horário"
-               FontSize="10"
+               FontSize="12"
                FontAttributes="Bold"
                VerticalOptions="Center"
                TextColor="DarkSlateGray"
-               Margin="0,5,0,0"/>
-            <Label Text="{Binding CellStartTime}"
+               Margin="7,5,0,0"/>
+            <Label Text="{Binding Celula.StartTimeFormated}"
                FontSize="10"
                VerticalOptions="Center"
-               TextColor="DarkSlateGray"/>
+               TextColor="DarkSlateGray"
+               Margin="7,0,0,0"/>
         </StackLayout>
 
         <StackLayout VerticalOptions="FillAndExpand"
@@ -74,12 +77,12 @@
                                         VerticalOptions="Center"
                                         TextColor="DarkSlateGray"
                                        FontAttributes="Bold"
-                                        Margin="0,0,0,5"/>
-                                <Label Text="{Binding Date, Mode=OneWay}"
+                                        Margin="0"/>
+                                <Label Text="{Binding DateFormated, Mode=OneWay}"
                                         FontSize="10"
                                         VerticalOptions="Center"
                                         TextColor="DarkSlateGray"/>
-                                <Label Text="{Binding StartTime, Mode=OneWay}"
+                                <Label Text="{Binding StartTimeFormated, Mode=OneWay}"
                                         FontSize="10"
                                         VerticalOptions="Center"
                                         TextColor="DarkSlateGray"/>

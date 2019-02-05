@@ -15,11 +15,11 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _Id, value); }
         }
 
-        private int _CellId;
-        public int CellId
+        private int _celulaId;
+        public int CelulaId
         {
-            get { return _CellId; }
-            set { SetProperty(ref _CellId, value); }
+            get { return _celulaId; }
+            set { SetProperty(ref _celulaId, value); }
         }
 
         private int _LeaderId;
@@ -44,11 +44,11 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _Date, value); }
         }
 
-        private TimeSpan _CellStartTime;
-        public TimeSpan CellStartTime
+        private TimeSpan _celulaStartTime;
+        public TimeSpan CelulaStartTime
         {
-            get { return _CellStartTime; }
-            set { SetProperty(ref _CellStartTime, value); }
+            get { return _celulaStartTime; }
+            set { SetProperty(ref _celulaStartTime, value); }
         }
 
         private float _offer;

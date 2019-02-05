@@ -17,11 +17,11 @@ namespace MinhaCelula.ViewModels
             set { SetProperty(ref _Date, value); }
         }
 
-        private TimeSpan _CellStartTime;
-        public TimeSpan CellStartTime
+        private TimeSpan _celulaStartTime;
+        public TimeSpan CelulaStartTime
         {
-            get { return _CellStartTime; }
-            set { SetProperty(ref _CellStartTime, value); }
+            get { return _celulaStartTime; }
+            set { SetProperty(ref _celulaStartTime, value); }
         }
 
         private float _offer;

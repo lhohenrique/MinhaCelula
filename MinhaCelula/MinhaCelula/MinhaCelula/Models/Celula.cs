@@ -5,9 +5,16 @@ using System.Text;
 
 namespace MinhaCelula.Models
 {
-    public class Cell : BindableBase
+    public class Celula : BindableBase
     {
         #region Properties
+        private int _id;
+        public int Id
+        {
+            get { return _id; }
+            set { SetProperty(ref _id, value); }
+        }
+
         private string _Name;
         public string Name
         {
@@ -71,17 +78,33 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _Members, value); }
         }
 
-        private int _MemberNumber;
         public int MemberNumber
         {
             get { return Members != null ? Members.Count : 0; }
         }
 
-        private TimeSpan _CellStartTime;
-        public TimeSpan CellStartTime
+        private string _meetingDate;
+        public string MeetingDate
         {
-            get { return _CellStartTime; }
-            set { SetProperty(ref _CellStartTime, value); }
+            get { return _meetingDate; }
+            set { SetProperty(ref _meetingDate, value); }
+        }
+
+        public string NextMeetingDate
+        {
+            get { return "15/05/2019"; }
+        }
+
+        private TimeSpan _celulaStartTime;
+        public TimeSpan CelulaStartTime
+        {
+            get { return _celulaStartTime; }
+            set { SetProperty(ref _celulaStartTime, value); }
+        }
+
+        public string StartTimeFormated
+        {
+            get { return CelulaStartTime.ToString(@"hh\:mm") + " horas"; }
         }
         #endregion
     }
