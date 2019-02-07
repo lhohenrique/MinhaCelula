@@ -2,9 +2,9 @@
 
 namespace MinhaCelula.Views
 {
-    public partial class CellsPage : ContentPage
+    public partial class CelulasPage : ContentPage
     {
-        public CellsPage()
+        public CelulasPage()
         {
             InitializeComponent();
         }

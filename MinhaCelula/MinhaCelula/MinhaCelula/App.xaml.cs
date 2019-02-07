@@ -31,7 +31,7 @@ namespace MinhaCelula
         {
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<LoginPage>();
-            containerRegistry.RegisterForNavigation<CellsPage>();
+            containerRegistry.RegisterForNavigation<CelulasPage>();
             containerRegistry.RegisterForNavigation<ReportsPage>();
             containerRegistry.RegisterForNavigation<ChurchsPage>();
         }

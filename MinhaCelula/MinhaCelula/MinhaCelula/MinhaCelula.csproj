@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FAB.Forms" Version="2.1.1" />
+    <PackageReference Include="SuaveControls.FloatingActionButton" Version="2018.1.5" />
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />
   </ItemGroup>
@@ -25,7 +27,7 @@
     <EmbeddedResource Update="Controls\ExpandableView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CellsPage.xaml">
+    <EmbeddedResource Update="Views\CelulasPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ChurchsPage.xaml">
@@ -47,6 +49,12 @@
 
   <ItemGroup>
     <Folder Include="Utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\CelulasPage.xaml.cs">
+      <DependentUpon>CelulasPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

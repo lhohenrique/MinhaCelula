@@ -28,12 +28,26 @@ namespace MinhaCelula.Models
             get { return _LeaderId; }
             set { SetProperty(ref _LeaderId, value); }
         }
-        
-        private int _HostId;
-        public int HostId
+
+        private string _leaderName;
+        public string LeaderName
         {
-            get { return _HostId; }
-            set { SetProperty(ref _HostId, value); }
+            get { return _leaderName; }
+            set { SetProperty(ref _leaderName, value); }
+        }
+        
+        private int _anfitriaoId;
+        public int AnfitriaoId
+        {
+            get { return _anfitriaoId; }
+            set { SetProperty(ref _anfitriaoId, value); }
+        }
+
+        private string _anfitriaoName;
+        public string AnfitriaoName
+        {
+            get { return _anfitriaoName; }
+            set { SetProperty(ref _anfitriaoName, value); }
         }
 
         private int _ChurchId;

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MinhaCelula.Views.CelulasPage"
+             BackgroundColor="LightBlue" Padding="5">
+
+    <RelativeLayout>
+        <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+
+            <ListView x:Name="CelulasListView"
+                            RowHeight="70"
+                            SeparatorVisibility="None"
+                            ItemsSource="{Binding CelulasList, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand"
+                                         BackgroundColor="White"
+                                         Orientation="Vertical"
+                                         Spacing="0"
+                                         Padding="7"
+                                         Margin="0,0,0,5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        TextColor="Black"/>
+                                    <Label Text="{Binding MemberNumber}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        TextColor="Black"
+                                        Grid.Column="1"/>
+                                </Grid>
+                                <Label Text="{Binding LeaderName}"
+                                       FontSize="10"
+                                       VerticalOptions="Center"
+                                       TextColor="DarkSlateGray"
+                                       Margin="5,0,0,0"/>
+                                <Label Text="{Binding AnfitriaoName}"
+                                       FontSize="10"
+                                       VerticalOptions="Center"
+                                       TextColor="DarkSlateGray"
+                                       Margin="5,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentView>
+        <controls:FloatingActionButton x:Name="AddFloatingButton" HorizontalOptions="CenterAndExpand" 
+                                            VerticalOptions="CenterAndExpand" 
+                                           Image="plus.png" ButtonColor="LightBlue"
+                                           Command="{Binding AddCelulaButtonCommand}"
+                                       
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-57}" />
+    </RelativeLayout>
+</ContentPage>

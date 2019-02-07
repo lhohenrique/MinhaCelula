@@ -15,7 +15,7 @@ namespace MinhaCelula.Services
         {
             menuList = new ObservableCollection<MenuItem>();
 
-            var celulas = new MenuItem() { Title = "Células", Icon = "", TargetType = typeof(CellsPage) };
+            var celulas = new MenuItem() { Title = "Células", Icon = "", TargetType = typeof(CelulasPage) };
             var reports = new MenuItem() { Title = "Relatórios", Icon = "", TargetType = typeof(ReportsPage) };
             var persons = new MenuItem() { Title = "Pessoas", Icon = "", TargetType = typeof(PersonsPage) };
             var schedule = new MenuItem() { Title = "Agenda", Icon = "", TargetType = typeof(PersonsPage) };
