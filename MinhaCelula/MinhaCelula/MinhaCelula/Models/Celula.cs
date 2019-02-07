@@ -15,18 +15,18 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _id, value); }
         }
 
-        private string _Name;
+        private string _name;
         public string Name
         {
-            get { return _Name; }
-            set { SetProperty(ref _Name, value); }
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
         }
 
-        private int _LeaderId;
+        private int _leaderId;
         public int LeaderId
         {
-            get { return _LeaderId; }
-            set { SetProperty(ref _LeaderId, value); }
+            get { return _leaderId; }
+            set { SetProperty(ref _leaderId, value); }
         }
 
         private string _leaderName;
@@ -50,46 +50,46 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _anfitriaoName, value); }
         }
 
-        private int _ChurchId;
+        private int _churchId;
         public int ChurchId
         {
-            get { return _ChurchId; }
-            set { SetProperty(ref _ChurchId, value); }
+            get { return _churchId; }
+            set { SetProperty(ref _churchId, value); }
         }
 
-        private string _Country;
+        private string _country;
         public string Country
         {
-            get { return _Country; }
-            set { SetProperty(ref _Country, value); }
+            get { return _country; }
+            set { SetProperty(ref _country, value); }
         }
 
-        private string _State;
+        private string _state;
         public string State
         {
-            get { return _State; }
-            set { SetProperty(ref _State, value); }
+            get { return _state; }
+            set { SetProperty(ref _state, value); }
         }
 
-        private string _City;
+        private string _city;
         public string City
         {
-            get { return _City; }
-            set { SetProperty(ref _City, value); }
+            get { return _city; }
+            set { SetProperty(ref _city, value); }
         }
 
-        private string _Address;
+        private string _address;
         public string Address
         {
-            get { return _Address; }
-            set { SetProperty(ref _Address, value); }
+            get { return _address; }
+            set { SetProperty(ref _address, value); }
         }
 
-        private List<Person> _Members;
+        private List<Person> _members;
         public List<Person> Members
         {
-            get { return _Members; }
-            set { SetProperty(ref _Members, value); }
+            get { return _members; }
+            set { SetProperty(ref _members, value); }
         }
 
         public int MemberNumber
