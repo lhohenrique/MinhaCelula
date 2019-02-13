@@ -36,12 +36,6 @@ namespace MinhaCelula.ViewModels
             CelulasList = CelulaService.GetCelulas();
         }
 
-        #region Actions
-        private void AddCelulaButtonAction()
-        {
-            navigationService.NavigateAsync("AddCellPage");
-        }
-
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
 
@@ -50,6 +44,12 @@ namespace MinhaCelula.ViewModels
         public void OnNavigatedTo(INavigationParameters parameters)
         {
 
+        }
+
+        #region Actions
+        private void AddCelulaButtonAction()
+        {
+            navigationService.NavigateAsync("AddEditCelulaPage");
         }
         #endregion
     }

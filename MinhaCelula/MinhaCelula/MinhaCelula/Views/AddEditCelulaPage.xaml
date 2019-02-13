@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MinhaCelula.Views.AddEditCelulaPage"
+             Title="{Binding PageTitle, Mode=OneWay}">
+
+    <ScrollView>
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="Start">
+            <Label Text="Nome da célula:"></Label>
+            <Entry Text="{Binding Name, Mode=OneWay}"></Entry>
+
+            <Label Text="Líder:"></Label>
+            <Picker ItemsSource="{Binding LeaderList}" SelectedItem="{Binding SelectedLeader, Mode=OneWay}"></Picker>
+
+            <Label Text="Horário de início:"></Label>
+            <TimePicker Time="{Binding StartTime, Mode=OneWay}"></TimePicker>
+
+            <Label Text="País:"></Label>
+            <Entry Text="{Binding Country, Mode=OneWay}"></Entry>
+
+            <Label Text="Estato:"></Label>
+            <Entry Text="{Binding State, Mode=OneWay}"></Entry>
+
+            <Label Text="Cidade:"></Label>
+            <Entry Text="{Binding City, Mode=OneWay}"></Entry>
+
+            <Label Text="Endereço:"></Label>
+            <Entry Text="{Binding Address, Mode=OneWay}"></Entry>
+
+            <!--<Label Text="Membros:"></Label>
+            <ListView x:Name="MembersList"
+                      ItemsSource="{Binding MembersList}"
+                      ItemTemplate="{StaticResource MembersTemplate}"></ListView>-->
+
+            <Button x:Name="AddCelulaButton" Text="Salvar" Command="AddCelulaCommand"></Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

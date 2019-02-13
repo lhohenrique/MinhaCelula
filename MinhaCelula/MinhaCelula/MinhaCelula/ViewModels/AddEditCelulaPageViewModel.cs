@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,9 +8,16 @@ using System.Linq;
 
 namespace MinhaCelula.ViewModels
 {
-	public class AddCellViewModel : BindableBase
-	{
+	public class AddEditCelulaPageViewModel : BindableBase, INavigatedAware
+    {
         #region Properties
+        private string _pageTitle;
+        public string PageTitle
+        {
+            get { return _pageTitle; }
+            set { SetProperty(ref _pageTitle, value); }
+        }
+
         private string _Name;
         public string Name
         {
@@ -64,9 +72,19 @@ namespace MinhaCelula.ViewModels
         public DelegateCommand AddCelulaCommand { get; }
         #endregion
 
-        public AddCellViewModel()
+        public AddEditCelulaPageViewModel()
         {
             AddCelulaCommand = new DelegateCommand(AddCelulaAction);
+        }
+
+        public void OnNavigatedFrom(INavigationParameters parameters)
+        {
+
+        }
+
+        public void OnNavigatedTo(INavigationParameters parameters)
+        {
+            PageTitle = "Nova Célula";
         }
 
         private void AddCelulaAction()

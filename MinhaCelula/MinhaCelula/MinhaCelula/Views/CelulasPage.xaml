@@ -61,7 +61,7 @@
         </ContentView>
         <controls:FloatingActionButton x:Name="AddFloatingButton" HorizontalOptions="CenterAndExpand" 
                                             VerticalOptions="CenterAndExpand" 
-                                           Image="plus.png" ButtonColor="LightBlue"
+                                           Image="plus.png" ButtonColor="BlueViolet"
                                            Command="{Binding AddCelulaButtonCommand}"
                                        
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
