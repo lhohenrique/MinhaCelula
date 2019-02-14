@@ -4,37 +4,44 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MinhaCelula.Views.AddEditCelulaPage"
+             BackgroundColor="LightBlue" Padding="5"
              Title="{Binding PageTitle, Mode=OneWay}">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" Command="SaveButtonCommand" Order="Primary" Priority="0"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ScrollView>
-        <StackLayout HorizontalOptions="Fill" VerticalOptions="Start">
-            <Label Text="Nome da célula:"></Label>
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"
+                     BackgroundColor="White"
+                     Padding="5">
+            <Label Text="Nome da célula"></Label>
             <Entry Text="{Binding Name, Mode=OneWay}"></Entry>
 
-            <Label Text="Líder:"></Label>
-            <Picker ItemsSource="{Binding LeaderList}" SelectedItem="{Binding SelectedLeader, Mode=OneWay}"></Picker>
+            <Label Text="Selecione o líder"></Label>
+            <Button Text="{Binding SelectLiderButtonText, Mode=OneWay}"
+                    BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    Command="{Binding SelectLiderButtonCommand}"></Button>
+            <!--<Picker ItemsSource="{Binding LeaderList}" SelectedItem="{Binding SelectedLeader, Mode=OneWay}"></Picker>-->
 
-            <Label Text="Horário de início:"></Label>
+            <Label Text="Horário de início"></Label>
             <TimePicker Time="{Binding StartTime, Mode=OneWay}"></TimePicker>
 
-            <Label Text="País:"></Label>
+            <Label Text="País"></Label>
             <Entry Text="{Binding Country, Mode=OneWay}"></Entry>
 
-            <Label Text="Estato:"></Label>
+            <Label Text="Estato"></Label>
             <Entry Text="{Binding State, Mode=OneWay}"></Entry>
 
-            <Label Text="Cidade:"></Label>
+            <Label Text="Cidade"></Label>
             <Entry Text="{Binding City, Mode=OneWay}"></Entry>
 
-            <Label Text="Endereço:"></Label>
+            <Label Text="Endereço"></Label>
             <Entry Text="{Binding Address, Mode=OneWay}"></Entry>
 
             <!--<Label Text="Membros:"></Label>
             <ListView x:Name="MembersList"
                       ItemsSource="{Binding MembersList}"
                       ItemTemplate="{StaticResource MembersTemplate}"></ListView>-->
-
-            <Button x:Name="AddCelulaButton" Text="Salvar" Command="AddCelulaCommand"></Button>
         </StackLayout>
     </ScrollView>
 </ContentPage>

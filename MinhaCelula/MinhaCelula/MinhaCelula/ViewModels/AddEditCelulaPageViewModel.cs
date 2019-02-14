@@ -10,6 +10,8 @@ namespace MinhaCelula.ViewModels
 {
 	public class AddEditCelulaPageViewModel : BindableBase, INavigatedAware
     {
+        private INavigationService navigationService;
+
         #region Properties
         private string _pageTitle;
         public string PageTitle
@@ -66,15 +68,26 @@ namespace MinhaCelula.ViewModels
             get { return _Address; }
             set { SetProperty(ref _Address, value); }
         }
+
+        private string _selectLiderButtonText;
+        public string SelectLiderButtonText
+        {
+            get { return _selectLiderButtonText; }
+            set { SetProperty(ref _selectLiderButtonText, value); }
+        }
         #endregion
 
         #region Commands
-        public DelegateCommand AddCelulaCommand { get; }
+        public DelegateCommand SaveButtonCommand { get; }
+        public DelegateCommand SelectLiderButtonCommand { get; }
         #endregion
 
-        public AddEditCelulaPageViewModel()
+        public AddEditCelulaPageViewModel(INavigationService navigationService)
         {
-            AddCelulaCommand = new DelegateCommand(AddCelulaAction);
+            this.navigationService = navigationService;
+
+            SaveButtonCommand = new DelegateCommand(SaveButtonAction);
+            SelectLiderButtonCommand = new DelegateCommand(SelectLiderButtonAction);
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)
@@ -87,9 +100,14 @@ namespace MinhaCelula.ViewModels
             PageTitle = "Nova Célula";
         }
 
-        private void AddCelulaAction()
+        private void SaveButtonAction()
         {
             
+        }
+
+        private void SelectLiderButtonAction()
+        {
+            navigationService.NavigateAsync("PersonPage");
         }
     }
 }
