@@ -1,12 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MinhaCelula.Views.PersonsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MinhaCelula.Views.PersonsPage"
+             BackgroundColor="LightBlue" Padding="5">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Filtro" Order="Secondary" Priority="0"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <RelativeLayout>
+        <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+
+            <ListView x:Name="PersonsListView"
+                            RowHeight="70"
+                            SeparatorVisibility="None"
+                            ItemsSource="{Binding PersonsList, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand"
+                                         BackgroundColor="White"
+                                         Orientation="Vertical"
+                                         Spacing="0"
+                                         Padding="7"
+                                         Margin="0,0,0,5">
+                                <Label Text="{Binding Name}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        TextColor="Black"/>
+                                <Label Text="{Binding Profile}"
+                                       FontSize="10"
+                                       VerticalOptions="Center"
+                                       TextColor="DarkSlateGray"
+                                       Margin="5,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentView>
+        <controls:FloatingActionButton x:Name="AddFloatingButton" HorizontalOptions="CenterAndExpand" 
+                                            VerticalOptions="CenterAndExpand" 
+                                           Image="plus.png" ButtonColor="BlueViolet"
+                                           Command="{Binding AddPersonButtonCommand}"
+                                       
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-57}" />
+    </RelativeLayout>
 </ContentPage>

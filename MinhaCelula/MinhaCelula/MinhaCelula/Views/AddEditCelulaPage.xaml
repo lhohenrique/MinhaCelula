@@ -12,30 +12,64 @@
     <ScrollView>
         <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"
                      BackgroundColor="White"
-                     Padding="5">
-            <Label Text="Nome da célula"></Label>
-            <Entry Text="{Binding Name, Mode=OneWay}"></Entry>
-
-            <Label Text="Selecione o líder"></Label>
+                     Padding="5,10,5,5">
             <Button Text="{Binding SelectLiderButtonText, Mode=OneWay}"
                     BorderColor="Transparent"
                     BackgroundColor="Transparent"
+                    TextColor="LightGray"
+                    FontSize="12"
+                    HorizontalOptions="Start"
+                    Padding="0"
+                    HeightRequest="20"
                     Command="{Binding SelectLiderButtonCommand}"></Button>
+            <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,0,0,5"></BoxView>
             <!--<Picker ItemsSource="{Binding LeaderList}" SelectedItem="{Binding SelectedLeader, Mode=OneWay}"></Picker>-->
 
-            <Label Text="Horário de início"></Label>
+            <Button Text="{Binding SelectAnfitriaoButtonText, Mode=OneWay}"
+                    BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    TextColor="LightGray"
+                    FontSize="12"
+                    HorizontalOptions="Start"
+                    Padding="0"
+                    HeightRequest="20"
+                    Command="{Binding SelectAnfitriaoButtonCommand}"></Button>
+            <BoxView BackgroundColor="LightGray" HeightRequest="1" Margin="0,0,0,5"></BoxView>
+
+            <Label Text="Nome da célula"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateGray"></Label>
+            <Entry Text="{Binding Name, Mode=OneWay}"></Entry>
+
+            <Label Text="Horário de início"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateGray"></Label>
             <TimePicker Time="{Binding StartTime, Mode=OneWay}"></TimePicker>
 
-            <Label Text="País"></Label>
+            <Label Text="País"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateGray"></Label>
             <Entry Text="{Binding Country, Mode=OneWay}"></Entry>
 
-            <Label Text="Estato"></Label>
+            <Label Text="Estato"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateGray"></Label>
             <Entry Text="{Binding State, Mode=OneWay}"></Entry>
 
-            <Label Text="Cidade"></Label>
+            <Label Text="Cidade"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateGray"></Label>
             <Entry Text="{Binding City, Mode=OneWay}"></Entry>
 
-            <Label Text="Endereço"></Label>
+            <Label Text="Endereço"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="DarkSlateGray"></Label>
             <Entry Text="{Binding Address, Mode=OneWay}"></Entry>
 
             <!--<Label Text="Membros:"></Label>

@@ -44,37 +44,36 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _Profile, value); }
         }
 
-        private bool _IsAdmin;
+        public string ProfileTitle
+        {
+            get { return _Profile.ToString(); }
+        }
+
         public bool IsAdmin
         {
             get { return _Profile == PersonProfile.Admin; }
         }
 
-        private bool _IsPastor;
         public bool IsPastor
         {
             get { return _Profile == PersonProfile.Pastor;  }
         }
 
-        private bool _IsCoordinator;
         public bool IsCoordinator
         {
             get { return _Profile == PersonProfile.Coordinator; }
         }
 
-        private bool _IsLeader;
         public bool IsLeader
         {
             get { return _Profile == PersonProfile.Leader; }
         }
 
-        private bool _IsMember;
         public bool IsMember
         {
             get { return _Profile == PersonProfile.Member; }
         }
 
-        private bool _IsVisitant;
         public bool IsVisitant
         {
             get { return _Profile == PersonProfile.Visitant; }

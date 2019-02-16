@@ -75,11 +75,19 @@ namespace MinhaCelula.ViewModels
             get { return _selectLiderButtonText; }
             set { SetProperty(ref _selectLiderButtonText, value); }
         }
+
+        private string _selectAnfitriaoButtonText;
+        public string SelectAnfitriaoButtonText
+        {
+            get { return _selectAnfitriaoButtonText; }
+            set { SetProperty(ref _selectAnfitriaoButtonText, value); }
+        }
         #endregion
 
         #region Commands
         public DelegateCommand SaveButtonCommand { get; }
         public DelegateCommand SelectLiderButtonCommand { get; }
+        public DelegateCommand SelectAnfitriaoButtonCommand { get; }
         #endregion
 
         public AddEditCelulaPageViewModel(INavigationService navigationService)
@@ -88,6 +96,10 @@ namespace MinhaCelula.ViewModels
 
             SaveButtonCommand = new DelegateCommand(SaveButtonAction);
             SelectLiderButtonCommand = new DelegateCommand(SelectLiderButtonAction);
+            SelectAnfitriaoButtonCommand = new DelegateCommand(SelectAnfitriaoButtonAction);
+
+            SelectLiderButtonText = "Selectione o líder";
+            SelectAnfitriaoButtonText = "Selectione o anfitrião";
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)
@@ -100,6 +112,7 @@ namespace MinhaCelula.ViewModels
             PageTitle = "Nova Célula";
         }
 
+        #region Action
         private void SaveButtonAction()
         {
             
@@ -107,7 +120,13 @@ namespace MinhaCelula.ViewModels
 
         private void SelectLiderButtonAction()
         {
-            navigationService.NavigateAsync("PersonPage");
+            navigationService.NavigateAsync("PersonsPage");
         }
+
+        private void SelectAnfitriaoButtonAction()
+        {
+            navigationService.NavigateAsync("PersonsPage");
+        }
+        #endregion
     }
 }
