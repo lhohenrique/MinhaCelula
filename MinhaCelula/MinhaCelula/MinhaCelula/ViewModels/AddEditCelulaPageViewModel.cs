@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using MinhaCelula.Models;
+using MinhaCelula.Services;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -27,11 +29,18 @@ namespace MinhaCelula.ViewModels
             set { SetProperty(ref _Name, value); }
         }
 
-        private ObservableCollection<string> _LeaderList;
-        public ObservableCollection<string> LeaderList
+        //private ObservableCollection<string> _LeaderList;
+        //public ObservableCollection<string> LeaderList
+        //{
+        //    get { return _LeaderList; }
+        //    set { SetProperty(ref _LeaderList, value); }
+        //}
+
+        private ObservableCollection<Person> _membersList;
+        public ObservableCollection<Person> MembersList
         {
-            get { return _LeaderList; }
-            set { SetProperty(ref _LeaderList, value); }
+            get { return _membersList; }
+            set { SetProperty(ref _membersList, value); }
         }
 
         private TimeSpan _StartTime;
@@ -100,6 +109,8 @@ namespace MinhaCelula.ViewModels
 
             SelectLiderButtonText = "Selectione o líder";
             SelectAnfitriaoButtonText = "Selectione o anfitrião";
+
+            MembersList = PersonService.GetPersons();
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

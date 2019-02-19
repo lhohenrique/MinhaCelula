@@ -48,7 +48,7 @@
                    TextColor="DarkSlateGray"></Label>
             <TimePicker Time="{Binding StartTime, Mode=OneWay}"></TimePicker>
 
-            <Label Text="País"
+            <!--<Label Text="País"
                    FontSize="12"
                    FontAttributes="Bold"
                    TextColor="DarkSlateGray"></Label>
@@ -64,7 +64,7 @@
                    FontSize="12"
                    FontAttributes="Bold"
                    TextColor="DarkSlateGray"></Label>
-            <Entry Text="{Binding City, Mode=OneWay}"></Entry>
+            <Entry Text="{Binding City, Mode=OneWay}"></Entry>-->
 
             <Label Text="Endereço"
                    FontSize="12"
@@ -72,10 +72,66 @@
                    TextColor="DarkSlateGray"></Label>
             <Entry Text="{Binding Address, Mode=OneWay}"></Entry>
 
-            <!--<Label Text="Membros:"></Label>
-            <ListView x:Name="MembersList"
-                      ItemsSource="{Binding MembersList}"
-                      ItemTemplate="{StaticResource MembersTemplate}"></ListView>-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Membros"
+                       VerticalOptions="Center"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="DarkSlateGray"></Label>
+                <Button Text="+"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Center"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="DarkSlateGray"
+                        Grid.Column="1"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        BackgroundColor="Transparent"
+                        Margin="0,-10,0,0"/>
+                <!--<Button Text="+"
+                        VerticalOptions="Start"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="DarkSlateGray"
+                        Grid.Column="1"
+                        WidthRequest="30"
+                        HeightRequest="30"
+                        BackgroundColor="Transparent"
+                        BorderColor="DarkGray"
+                        BorderWidth="1"
+                        BorderRadius="15"/>-->
+            </Grid>
+            <ListView x:Name="MembersListView"
+                            RowHeight="30"
+                            SeparatorVisibility="None"
+                            ItemsSource="{Binding MembersList, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand"
+                                         BackgroundColor="White"
+                                         Orientation="Vertical"
+                                         Spacing="0"
+                                         Padding="7"
+                                         Margin="0,0,0,5">
+                                <Label Text="{Binding Name}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        TextColor="DarkSlateGray"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ScrollView>
 </ContentPage>
