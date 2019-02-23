@@ -97,6 +97,7 @@ namespace MinhaCelula.ViewModels
         public DelegateCommand SaveButtonCommand { get; }
         public DelegateCommand SelectLiderButtonCommand { get; }
         public DelegateCommand SelectAnfitriaoButtonCommand { get; }
+        public DelegateCommand AddMemberButtonCommand { get; }
         #endregion
 
         public AddEditCelulaPageViewModel(INavigationService navigationService)
@@ -106,6 +107,7 @@ namespace MinhaCelula.ViewModels
             SaveButtonCommand = new DelegateCommand(SaveButtonAction);
             SelectLiderButtonCommand = new DelegateCommand(SelectLiderButtonAction);
             SelectAnfitriaoButtonCommand = new DelegateCommand(SelectAnfitriaoButtonAction);
+            AddMemberButtonCommand = new DelegateCommand(AddMemberButtonAction);
 
             SelectLiderButtonText = "Selectione o líder";
             SelectAnfitriaoButtonText = "Selectione o anfitrião";
@@ -135,6 +137,11 @@ namespace MinhaCelula.ViewModels
         }
 
         private void SelectAnfitriaoButtonAction()
+        {
+            navigationService.NavigateAsync("PersonsPage");
+        }
+
+        private void AddMemberButtonAction()
         {
             navigationService.NavigateAsync("PersonsPage");
         }

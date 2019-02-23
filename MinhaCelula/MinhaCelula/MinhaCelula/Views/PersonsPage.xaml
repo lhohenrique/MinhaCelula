@@ -42,7 +42,7 @@
             </ListView>
         </ContentView>
         <controls:FloatingActionButton x:Name="AddFloatingButton" HorizontalOptions="CenterAndExpand" 
-                                            VerticalOptions="CenterAndExpand" 
+                                            VerticalOptions="CenterAndExpand" WidthRequest="60" HeightRequest="70"
                                            Image="plus.png" ButtonColor="BlueViolet"
                                            Command="{Binding AddPersonButtonCommand}"
                                        
