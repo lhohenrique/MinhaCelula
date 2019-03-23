@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace MinhaCelula.ViewModels
 {
@@ -25,6 +26,7 @@ namespace MinhaCelula.ViewModels
 
         #region Commands
         public DelegateCommand AddCelulaButtonCommand { get; set; }
+        public DelegateCommand<Celula> SelectCelulaButtonCommand { get; set; }
         #endregion
 
         public CelulasPageViewModel(INavigationService navigationService)
@@ -32,6 +34,7 @@ namespace MinhaCelula.ViewModels
             this.navigationService = navigationService;
 
             AddCelulaButtonCommand = new DelegateCommand(AddCelulaButtonAction);
+            SelectCelulaButtonCommand = new DelegateCommand<Celula>(SelectCelulaButtonAction);
 
             CelulasList = CelulaService.GetCelulas();
         }
@@ -50,6 +53,14 @@ namespace MinhaCelula.ViewModels
         private void AddCelulaButtonAction()
         {
             navigationService.NavigateAsync("AddEditCelulaPage");
+        }
+
+        private void SelectCelulaButtonAction(Celula celulaSelected)
+        {
+            var navigationParams = new NavigationParameters();
+            navigationParams.Add("celula", celulaSelected);
+
+            navigationService.NavigateAsync("AddEditCelulaPage", navigationParams);
         }
         #endregion
     }

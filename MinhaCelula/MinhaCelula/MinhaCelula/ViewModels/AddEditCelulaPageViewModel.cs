@@ -122,6 +122,7 @@ namespace MinhaCelula.ViewModels
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
+            Celula celula = (Celula)parameters["celula"];
             PageTitle = "Nova Célula";
         }
 
