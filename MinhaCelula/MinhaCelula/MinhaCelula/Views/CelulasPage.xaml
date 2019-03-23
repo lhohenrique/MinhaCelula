@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             xmlns:behavior="clr-namespace:MinhaCelula.Utils"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MinhaCelula.Views.CelulasPage"
              BackgroundColor="LightBlue" Padding="5">
@@ -59,6 +60,9 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <behavior:EventToCommandBehavior EventName="ItemSelected" Command="{Binding AddCelulaButtonCommand}" />
+                </ListView.Behaviors>
             </ListView>
         </ContentView>
         <controls:FloatingActionButton x:Name="AddFloatingButton" HorizontalOptions="CenterAndExpand" 
