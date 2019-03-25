@@ -22,6 +22,8 @@ namespace MinhaCelula.ViewModels
             set { SetProperty(ref _pageTitle, value); }
         }
 
+        private Celula celula;
+
         private string _Name;
         public string Name
         {
@@ -36,7 +38,7 @@ namespace MinhaCelula.ViewModels
         //    set { SetProperty(ref _LeaderList, value); }
         //}
 
-        private ObservableCollection<Person> _membersList;
+        private ObservableCollection<Person> _membersList = new ObservableCollection<Person>();
         public ObservableCollection<Person> MembersList
         {
             get { return _membersList; }
@@ -108,22 +110,41 @@ namespace MinhaCelula.ViewModels
             SelectLiderButtonCommand = new DelegateCommand(SelectLiderButtonAction);
             SelectAnfitriaoButtonCommand = new DelegateCommand(SelectAnfitriaoButtonAction);
             AddMemberButtonCommand = new DelegateCommand(AddMemberButtonAction);
-
-            SelectLiderButtonText = "Selectione o líder";
-            SelectAnfitriaoButtonText = "Selectione o anfitrião";
-
-            MembersList = PersonService.GetPersons();
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
-
+            ClearFields();
         }
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-            Celula celula = (Celula)parameters["celula"];
-            PageTitle = "Nova Célula";
+            celula = (Celula)parameters["celula"];
+
+            if (celula != null)
+            {
+                PageTitle = "Editar Célula";
+
+                Name = celula.Name;
+                StartTime = celula.CelulaStartTime;
+                Country = celula.Country;
+                State = celula.State;
+                City = celula.City;
+                Address = celula.Address;
+                SelectLiderButtonText = celula.LeaderName;
+                SelectAnfitriaoButtonText = celula.AnfitriaoName;
+
+                foreach (Person member in celula.Members)
+                {
+                    MembersList.Add(member);
+                }
+            }
+            else
+            {
+                PageTitle = "Nova Célula";
+                SelectLiderButtonText = "Selectione o líder";
+                SelectAnfitriaoButtonText = "Selectione o anfitrião";
+            }            
         }
 
         #region Action
@@ -145,6 +166,23 @@ namespace MinhaCelula.ViewModels
         private void AddMemberButtonAction()
         {
             navigationService.NavigateAsync("PersonsPage");
+        }
+        #endregion
+
+        #region Methods
+        private void ClearFields()
+        {
+            PageTitle = string.Empty;
+
+            Name = string.Empty;
+            StartTime = TimeSpan.Zero;
+            Country = string.Empty;
+            State = string.Empty;
+            City = string.Empty;
+            Address = string.Empty;
+            SelectLiderButtonText = "Selectione o líder";
+            SelectAnfitriaoButtonText = "Selectione o anfitrião";
+            MembersList = new ObservableCollection<Person>();
         }
         #endregion
     }
