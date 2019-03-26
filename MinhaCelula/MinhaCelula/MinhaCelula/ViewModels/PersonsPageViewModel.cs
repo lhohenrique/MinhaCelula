@@ -25,6 +25,7 @@ namespace MinhaCelula.ViewModels
 
         #region Commands
         public DelegateCommand AddPersonButtonCommand { get; set; }
+        public DelegateCommand<Person> SelectPersonButtonCommand { get; set; }
         #endregion
 
         public PersonsPageViewModel(INavigationService navigationService)
@@ -32,6 +33,7 @@ namespace MinhaCelula.ViewModels
             this.navigationService = navigationService;
 
             AddPersonButtonCommand = new DelegateCommand(AddPersonButtonAction);
+            SelectPersonButtonCommand = new DelegateCommand<Person>(SelectPersonButtonAction);
 
             PersonsList = PersonService.GetPersons();
         }
@@ -50,6 +52,14 @@ namespace MinhaCelula.ViewModels
         private void AddPersonButtonAction()
         {
             navigationService.NavigateAsync("AddEditPersonPage");
+        }
+
+        private void SelectPersonButtonAction(Person personSelected)
+        {
+            var navigationParams = new NavigationParameters();
+            navigationParams.Add("person", personSelected);
+
+            navigationService.NavigateAsync("AddEditPersonPage", navigationParams);
         }
         #endregion
     }

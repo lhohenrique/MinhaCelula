@@ -13,6 +13,7 @@ namespace MinhaCelula.ViewModels
 	public class AddEditCelulaPageViewModel : BindableBase, INavigatedAware
     {
         private INavigationService navigationService;
+        private Celula celula;
 
         #region Properties
         private string _pageTitle;
@@ -21,8 +22,6 @@ namespace MinhaCelula.ViewModels
             get { return _pageTitle; }
             set { SetProperty(ref _pageTitle, value); }
         }
-
-        private Celula celula;
 
         private string _Name;
         public string Name
@@ -123,7 +122,7 @@ namespace MinhaCelula.ViewModels
 
             if (celula != null)
             {
-                PageTitle = "Editar Célula";
+                PageTitle = "Editar";
 
                 Name = celula.Name;
                 StartTime = celula.CelulaStartTime;

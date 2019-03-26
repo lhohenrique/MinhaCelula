@@ -3,9 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             xmlns:behavior="clr-namespace:MinhaCelula.Utils"
+             xmlns:converter="clr-namespace:MinhaCelula.Converters"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MinhaCelula.Views.PersonsPage"
              BackgroundColor="LightBlue" Padding="5">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Filtro" Order="Secondary" Priority="0"></ToolbarItem>
     </ContentPage.ToolbarItems>
@@ -39,6 +46,12 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <behavior:EventToCommandBehavior EventName="ItemSelected"
+                                                     Command="{Binding SelectPersonButtonCommand}"
+                                                     CommandParameter="{Binding Source={x:Reference PersonsListView}, Path=SelectedItem}"
+                                                     Converter="{StaticResource SelectedItemConverter}"/>
+                </ListView.Behaviors>
             </ListView>
         </ContentView>
         <controls:FloatingActionButton x:Name="AddFloatingButton" HorizontalOptions="CenterAndExpand" 

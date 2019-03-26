@@ -67,7 +67,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.Behaviors>
-                    <behavior:EventToCommandBehavior EventName="ItemSelected" Command="{Binding SelectCelulaButtonCommand}" CommandParameter="{Binding Source={x:Reference CelulasListView}, Path=SelectedItem}" Converter="{StaticResource SelectedItemConverter}"/>
+                    <behavior:EventToCommandBehavior EventName="ItemSelected"
+                                                     Command="{Binding SelectCelulaButtonCommand}"
+                                                     CommandParameter="{Binding Source={x:Reference CelulasListView}, Path=SelectedItem}"
+                                                     Converter="{StaticResource SelectedItemConverter}"/>
                 </ListView.Behaviors>
             </ListView>
         </ContentView>
