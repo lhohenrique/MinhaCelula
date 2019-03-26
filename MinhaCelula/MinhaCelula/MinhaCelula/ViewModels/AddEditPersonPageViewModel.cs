@@ -8,9 +8,16 @@ using static MinhaCelula.Models.Person;
 
 namespace MinhaCelula.ViewModels
 {
-	public class AddPersonViewModel : BindableBase
+	public class AddEditPersonPageViewModel : BindableBase
 	{
         #region Properties
+        private string _pageTitle;
+        public string PageTitle
+        {
+            get { return _pageTitle; }
+            set { SetProperty(ref _pageTitle, value); }
+        }
+
         private string _Name;
         public string Name
         {
@@ -47,9 +54,22 @@ namespace MinhaCelula.ViewModels
         }
         #endregion
 
-        public AddPersonViewModel()
+        #region Commands
+        public DelegateCommand SaveButtonCommand { get; }
+        #endregion
+
+        public AddEditPersonPageViewModel()
+        {
+            SaveButtonCommand = new DelegateCommand(SaveButtonAction);
+
+            PageTitle = "Add Person";
+        }
+
+        #region Action
+        private void SaveButtonAction()
         {
 
         }
-	}
+        #endregion
+    }
 }

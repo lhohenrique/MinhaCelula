@@ -2,9 +2,9 @@
 
 namespace MinhaCelula.Views
 {
-    public partial class AddPerson : ContentPage
+    public partial class AddEditPersonPage : ContentPage
     {
-        public AddPerson()
+        public AddEditPersonPage()
         {
             InitializeComponent();
         }

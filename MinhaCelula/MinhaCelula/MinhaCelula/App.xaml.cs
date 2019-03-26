@@ -36,6 +36,7 @@ namespace MinhaCelula
             containerRegistry.RegisterForNavigation<ChurchsPage>();
             containerRegistry.RegisterForNavigation<PersonsPage, PersonsPageViewModel>();
             containerRegistry.RegisterForNavigation<AddEditCelulaPage, AddEditCelulaPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddEditPersonPage, AddEditPersonPageViewModel>();
         }
     }
 }
