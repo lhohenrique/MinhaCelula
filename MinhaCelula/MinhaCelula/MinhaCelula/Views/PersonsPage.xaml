@@ -49,7 +49,6 @@
                 <ListView.Behaviors>
                     <behavior:EventToCommandBehavior EventName="ItemSelected"
                                                      Command="{Binding SelectPersonButtonCommand}"
-                                                     CommandParameter="{Binding Source={x:Reference PersonsListView}, Path=SelectedItem}"
                                                      Converter="{StaticResource SelectedItemConverter}"/>
                 </ListView.Behaviors>
             </ListView>
