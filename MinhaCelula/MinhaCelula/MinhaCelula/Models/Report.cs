@@ -22,6 +22,13 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _celulaId, value); }
         }
 
+        private string _celulaName;
+        public string CelulaName
+        {
+            get { return _celulaName; }
+            set { SetProperty(ref _celulaName, value); }
+        }
+
         private int _LeaderId;
         public int LeaderId
         {
@@ -37,11 +44,16 @@ namespace MinhaCelula.Models
             set { SetProperty(ref _HostId, value); }
         }
 
-        private DateTime _Date;
+        private DateTime _date;
         public DateTime Date
         {
-            get { return _Date; }
-            set { SetProperty(ref _Date, value); }
+            get { return _date; }
+            set { SetProperty(ref _date, value); }
+        }
+
+        public string DateFormated
+        {
+            get { return _date.ToShortDateString(); }
         }
 
         private TimeSpan _celulaStartTime;

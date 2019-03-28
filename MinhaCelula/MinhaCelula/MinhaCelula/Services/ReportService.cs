@@ -15,10 +15,10 @@ namespace MinhaCelula.Services
         {
             reportList = new ObservableCollection<Report>();
 
-            var report1 = new Report() { Date = DateTime.Now.Date, Sent = true, CelulaStartTime = TimeSpan.FromHours(11) };
-            var report2 = new Report() { Date = DateTime.Now.Date, Sent = true, CelulaStartTime = TimeSpan.FromHours(12) };
-            var report3 = new Report() { Date = DateTime.Now.Date, Sent = true, CelulaStartTime = TimeSpan.FromHours(13) };
-            var report4 = new Report() { Date = DateTime.Now.Date, Sent = false, CelulaStartTime = TimeSpan.FromHours(14) };
+            var report1 = new Report() { CelulaName="Leão da Tribo de Juda", Date = DateTime.Now.Date, Sent = true, CelulaStartTime = TimeSpan.FromHours(11) };
+            var report2 = new Report() { CelulaName = "Chamados para fora", Date = DateTime.Now.Date, Sent = true, CelulaStartTime = TimeSpan.FromHours(12) };
+            var report3 = new Report() { CelulaName = "Videira", Date = DateTime.Now.Date, Sent = true, CelulaStartTime = TimeSpan.FromHours(13) };
+            var report4 = new Report() { CelulaName = "Celula 1", Date = DateTime.Now.Date, Sent = false, CelulaStartTime = TimeSpan.FromHours(14) };
 
             reportList.Add(report1);
             reportList.Add(report2);
