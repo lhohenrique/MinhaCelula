@@ -4,8 +4,11 @@
              xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
              x:Class="MinhaCelula.App">
 	<Application.Resources>
-
-		<!-- Application resource dictionary -->
-
-	</Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="CustomFont" x:TypeArguments="x:String">
+                <On Platform="Android" Value="checkicon.ttf#fontello" />
+                <On Platform="iOS" Value="checkicon" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
 </prism:PrismApplication>
