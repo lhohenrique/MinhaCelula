@@ -11,6 +11,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+            <converter:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -47,20 +48,20 @@
                                         FontSize="14"
                                         VerticalOptions="Center"
                                         TextColor="Black"/>
-                                    <Label 
+                                    <Label x:Name="ReportNotSentLabel"
                                         Text="&#xe801;" FontFamily="{StaticResource CustomFont}"
                                         FontSize="14"
                                         VerticalOptions="Center"
                                         TextColor="LightGray"
-                                        IsVisible="{Binding Sent}"
+                                        IsVisible="{Binding Sent, Converter={StaticResource InverseBooleanConverter}}"
                                         Grid.Column="1"/>
-                                    <!--<Label 
+                                    <Label x:Name="ReportSentLabel"
                                         Text="&#xe801;" FontFamily="{StaticResource CustomFont}"
                                         FontSize="14"
                                         VerticalOptions="Center"
                                         TextColor="GreenYellow"
                                         IsVisible="{Binding Sent}"
-                                        Grid.Column="1"/>-->
+                                        Grid.Column="1"/>
                                 </Grid>
                                 <Label Text="{Binding DateFormated}"
                                        FontSize="10"
