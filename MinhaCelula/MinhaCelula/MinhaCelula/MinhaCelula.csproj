@@ -58,6 +58,9 @@
     <Compile Update="Views\AddEditPersonPage.xaml.cs">
       <DependentUpon>AddEditPersonPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AddEditReportPage.xaml.cs">
+      <DependentUpon>AddEditReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CelulasPage.xaml.cs">
       <DependentUpon>CelulasPage.xaml</DependentUpon>
     </Compile>
