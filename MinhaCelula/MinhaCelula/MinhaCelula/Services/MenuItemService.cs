@@ -17,16 +17,51 @@ namespace MinhaCelula.Services
 
             var celulas = new MenuItem() { Title = "Células", Icon = "", TargetType = typeof(CelulasPage) };
             var reports = new MenuItem() { Title = "Relatórios", Icon = "", TargetType = typeof(ReportsPage) };
-            var persons = new MenuItem() { Title = "Pessoas", Icon = "", TargetType = typeof(PersonsPage) };
+            var pastores = new MenuItem() { Title = "Pastores", Icon = "", TargetType = typeof(PersonsPage) };
+            var coordenadores = new MenuItem() { Title = "Coordenadores", Icon = "", TargetType = typeof(PersonsPage) };
+            var lideres = new MenuItem() { Title = "Líderes", Icon = "", TargetType = typeof(PersonsPage) };
+            var membros = new MenuItem() { Title = "membros", Icon = "", TargetType = typeof(PersonsPage) };
             var schedule = new MenuItem() { Title = "Agenda", Icon = "", TargetType = typeof(PersonsPage) };
             var churchs = new MenuItem() { Title = "Igrejas", Icon = "", TargetType = typeof(ChurchsPage) };
 
-            menuList.Add(celulas);
-            menuList.Add(reports);
-            menuList.Add(persons);
-            menuList.Add(schedule);
-            menuList.Add(churchs);
+            Person loggedUser = PersonService.GetLoggedUser();
 
+            if (loggedUser.IsAdmin)
+            {
+                menuList.Add(churchs);
+                menuList.Add(celulas);
+                menuList.Add(reports);
+                menuList.Add(pastores);
+                menuList.Add(coordenadores);
+                menuList.Add(lideres);
+                menuList.Add(membros);
+                menuList.Add(schedule);
+            }
+            else if (loggedUser.IsPastor)
+            {
+                menuList.Add(celulas);
+                menuList.Add(reports);
+                menuList.Add(coordenadores);
+                menuList.Add(lideres);
+                menuList.Add(membros);
+                menuList.Add(schedule);
+            }
+            else if (loggedUser.IsCoordinator)
+            {
+                menuList.Add(celulas);
+                menuList.Add(reports);
+                menuList.Add(lideres);
+                menuList.Add(membros);
+                menuList.Add(schedule);
+            }
+            else if (loggedUser.IsLeader)
+            {
+                menuList.Add(celulas);
+                menuList.Add(reports);
+                menuList.Add(membros);
+                menuList.Add(schedule);
+            }
+            
             return menuList;
         }
     }
