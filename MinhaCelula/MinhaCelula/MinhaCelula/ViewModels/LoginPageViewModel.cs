@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using MinhaCelula.Models;
+using MinhaCelula.Services;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -42,7 +44,12 @@ namespace MinhaCelula.ViewModels
 
             if(isEmailValid && isPasswordValid)
             {
-                NavigationService.NavigateAsync("MainPage");
+                var user = PersonService.GetUserByEmailAndPassword(Email, Password);
+
+                if (user != null)
+                {
+                    NavigationService.NavigateAsync("MainPage");
+                }
             }
             else
             {

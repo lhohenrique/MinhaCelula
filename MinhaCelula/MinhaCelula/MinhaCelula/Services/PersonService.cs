@@ -10,6 +10,48 @@ namespace MinhaCelula.Services
 {
     public class PersonService
     {
+        private static Person loggedUser { get; set; }
+
+        public static Person GetLoggedUser()
+        {
+            return loggedUser;
+        }
+
+        private static void SetLoggedUser(Person user)
+        {
+            loggedUser = user;
+        }
+
+        public static Person GetUserByEmailAndPassword(string email, string password)
+        {
+            Person user = new Person();
+
+            if (email.Equals("admin"))
+            {
+                user.Name = "Admin";
+                user.Profile = PersonProfile.Admin;
+            }
+            else if (email.Equals("lider"))
+            {
+                user.Name = "Lider";
+                user.Profile = PersonProfile.Leader;
+            }
+            else if (email.Equals("coordenador"))
+            {
+                user.Name = "Coordenador";
+                user.Profile = PersonProfile.Coordinator;
+            }
+            else if (email.Equals("pastor"))
+            {
+                user.Name = "Pastor";
+                user.Profile = PersonProfile.Pastor;
+            }
+
+            SetLoggedUser(user);
+
+            return user;
+        }
+
         private static ObservableCollection<Person> personList { get; set; } 
 
         public static ObservableCollection<Person> GetPersons()
