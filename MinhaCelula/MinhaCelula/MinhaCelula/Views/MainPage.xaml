@@ -11,7 +11,7 @@
         <ContentPage Title="Menu" BackgroundColor="BlueViolet">
             <StackLayout Orientation="Vertical">
                 <StackLayout BackgroundColor="DarkBlue" HeightRequest="50" Padding="10,0,0,5">
-                    <Label Text="{Binding LoggedUser, Mode=OneWay}" FontSize="10"
+                    <Label Text="{Binding LoggedUserName, Mode=OneWay}" FontSize="10"
                            VerticalOptions="EndAndExpand"
                            TextColor="White"
                            HorizontalOptions="StartAndExpand"></Label>

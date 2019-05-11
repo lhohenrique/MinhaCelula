@@ -33,17 +33,17 @@ namespace MinhaCelula.Services
             }
             else if (email.Equals("lider"))
             {
-                user.Name = "Lider";
+                user.Name = "Luiz Lider";
                 user.Profile = PersonProfile.Leader;
             }
             else if (email.Equals("coordenador"))
             {
-                user.Name = "Coordenador";
+                user.Name = "Luiz Coordenador";
                 user.Profile = PersonProfile.Coordinator;
             }
             else if (email.Equals("pastor"))
             {
-                user.Name = "Pastor";
+                user.Name = "Luiz Pastor";
                 user.Profile = PersonProfile.Pastor;
             }
 

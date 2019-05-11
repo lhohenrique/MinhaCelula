@@ -28,11 +28,11 @@ namespace MinhaCelula.ViewModels
             set { SetProperty(ref isPresented, value); }
         }
 
-        private string loggedUser;
-        public string LoggedUser
+        private string loggedUserName;
+        public string LoggedUserName
         {
-            get { return loggedUser; }
-            set { SetProperty(ref loggedUser, value); }
+            get { return loggedUserName; }
+            set { SetProperty(ref loggedUserName, value); }
         }
         #endregion
 
@@ -42,7 +42,9 @@ namespace MinhaCelula.ViewModels
 
         public MainPageViewModel(INavigationService navigationService) : base (navigationService)
         {
-            LoggedUser = "Luiz Henrique";
+            var loggedUser = PersonService.GetLoggedUser();
+            LoggedUserName = loggedUser.Name;
+
             MenuItemList = MenuItemService.GetMenuItems();
         }
     }
