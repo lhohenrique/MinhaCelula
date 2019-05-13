@@ -20,7 +20,7 @@ namespace MinhaCelula.Services
             var reports = new MenuItem() { Title = "Relatórios", Icon = "", TargetType = typeof(ReportsPage) };
             var pastores = new MenuItem() { Title = "Pastores", Icon = "", TargetType = typeof(PersonsPage) };
             var coordenadores = new MenuItem() { Title = "Coordenadores", Icon = "", TargetType = typeof(PersonsPage) };
-            var lideres = new MenuItem() { Title = "Líderes", Icon = "", TargetType = typeof(PersonsPage) };
+            var lideres = new MenuItem() { Title = "Líderes", Icon = "", TargetType = typeof(LideresPage) };
             var membros = new MenuItem() { Title = "Membros", Icon = "", TargetType = typeof(PersonsPage) };
             var schedule = new MenuItem() { Title = "Agenda", Icon = "", TargetType = typeof(PersonsPage) };
 
