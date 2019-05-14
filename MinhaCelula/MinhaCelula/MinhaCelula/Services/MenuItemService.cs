@@ -21,7 +21,7 @@ namespace MinhaCelula.Services
             var pastores = new MenuItem() { Title = "Pastores", Icon = "", TargetType = typeof(PastoresPage) };
             var coordenadores = new MenuItem() { Title = "Coordenadores", Icon = "", TargetType = typeof(CoordenadoresPage) };
             var lideres = new MenuItem() { Title = "Líderes", Icon = "", TargetType = typeof(LideresPage) };
-            var membros = new MenuItem() { Title = "Membros", Icon = "", TargetType = typeof(PersonsPage) };
+            var membros = new MenuItem() { Title = "Membros", Icon = "", TargetType = typeof(MembrosPage) };
             var schedule = new MenuItem() { Title = "Agenda", Icon = "", TargetType = typeof(PersonsPage) };
 
             Person loggedUser = PersonService.GetLoggedUser();

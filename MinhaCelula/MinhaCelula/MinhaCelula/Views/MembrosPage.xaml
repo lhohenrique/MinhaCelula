@@ -1,12 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MinhaCelula.Views.MembrosPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             xmlns:behavior="clr-namespace:MinhaCelula.Utils"
+             xmlns:converter="clr-namespace:MinhaCelula.Converters"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MinhaCelula.Views.MembrosPage"
+             BackgroundColor="LightBlue" Padding="5">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Filtro" Order="Secondary" Priority="0"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <RelativeLayout>
+        <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+
+            <ListView x:Name="MembrosListView"
+                            RowHeight="70"
+                            SeparatorVisibility="None"
+                            ItemsSource="{Binding MembrosList, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand"
+                                         BackgroundColor="White"
+                                         Orientation="Vertical"
+                                         Spacing="0"
+                                         Padding="7"
+                                         Margin="0,0,0,5">
+                                <Label Text="{Binding Name}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        TextColor="Black"/>
+                                <Label Text="{Binding Profile}"
+                                       FontSize="10"
+                                       VerticalOptions="Center"
+                                       TextColor="DarkSlateGray"
+                                       Margin="5,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <behavior:EventToCommandBehavior EventName="ItemSelected"
+                                                     Command="{Binding SelectMembroButtonCommand}"
+                                                     Converter="{StaticResource SelectedItemConverter}"/>
+                </ListView.Behaviors>
+            </ListView>
+        </ContentView>
+        <controls:FloatingActionButton x:Name="AddFloatingButton" HorizontalOptions="CenterAndExpand" 
+                                            VerticalOptions="CenterAndExpand" WidthRequest="60" HeightRequest="70"
+                                           Image="plus.png" ButtonColor="BlueViolet"
+                                           Command="{Binding AddMembroButtonCommand}"
+                                       
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"  
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-57}" />
+    </RelativeLayout>
 </ContentPage>
