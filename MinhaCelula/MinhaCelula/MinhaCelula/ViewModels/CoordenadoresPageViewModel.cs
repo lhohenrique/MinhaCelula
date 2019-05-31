@@ -35,7 +35,7 @@ namespace MinhaCelula.ViewModels
             AddCoordenadorButtonCommand = new DelegateCommand(AddCoordenadorButtonAction);
             SelectCoordenadorButtonCommand = new DelegateCommand<Person>(SelectCoordenadorButtonAction);
 
-            CoordenadoresList = PersonService.GetPersons();
+            CoordenadoresList = PersonService.GetCoordenadores();
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

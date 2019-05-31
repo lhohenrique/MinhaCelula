@@ -35,7 +35,7 @@ namespace MinhaCelula.ViewModels
             AddLiderButtonCommand = new DelegateCommand(AddLiderButtonAction);
             SelectLiderButtonCommand = new DelegateCommand<Person>(SelectLiderButtonAction);
 
-            LideresList = PersonService.GetPersons();
+            LideresList = PersonService.GetLideres();
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

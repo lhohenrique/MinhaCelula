@@ -35,7 +35,7 @@ namespace MinhaCelula.ViewModels
             AddPastorButtonCommand = new DelegateCommand(AddPastorButtonAction);
             SelectPastorButtonCommand = new DelegateCommand<Person>(SelectPastorButtonAction);
 
-            PastoresList = PersonService.GetPersons();
+            PastoresList = PersonService.GetPastores();
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

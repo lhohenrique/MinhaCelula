@@ -35,7 +35,7 @@ namespace MinhaCelula.ViewModels
             AddMembroButtonCommand = new DelegateCommand(AddMembroButtonAction);
             SelectMembroButtonCommand = new DelegateCommand<Person>(SelectMembroButtonAction);
 
-            MembrosList = PersonService.GetPersons();
+            MembrosList = PersonService.GetMembros();
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)
